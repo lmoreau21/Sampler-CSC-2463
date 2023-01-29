@@ -12,13 +12,9 @@ function setup(){
   slider.style('width','500px')
   size = 200
   sounds = new Tone.Players({soundOne:"mixkit-clear-announce-tones-2861.wav",soundTwo:"mixkit-arcade-retro-game-over-213.wav",soundThree:"mixkit-race-countdown-1953.wav",soundFour:"mixkit-winning-an-extra-bonus-2060.wav"}).connect(shifter);
-  // checkbox = createCheckbox('Repeat Sound', false);
-  // checkbox.changed(loopSounds)
-  // sounds.loop = true;
 }
 function draw(){
-  background(0);
-  stroke('white')
+  background('lightblue');
   fill('red')
   shapeOne =  circle(width*1/4,height/4+30,size)
   fill('green')
@@ -27,14 +23,15 @@ function draw(){
   shapeThree = circle(width*1/4,height*3/4,size)
   fill('orange')
   shapeFour = circle(width*3/4,height*3/4,size)
-
+  
   noStroke();
   textSize(24);
 
 
-  fill("white")
+  fill("black")
   text("Pitch: "+slider.value(),width/2-40,30)
   stroke('black')
+  fill('white')
   text("Announcement",width*1/4-textWidth("Announcement")/2,height/4+36)
   text("Death Sound",width*3/4-textWidth("Death Sound")/2,height/4+36)
   text("Race Countdown",width*1/4-textWidth("Race Countdown")/2,height*3/4+6)
@@ -53,5 +50,4 @@ function mouseClicked() {
   }else if (dist(mouseX, mouseY, width*3/4,height*3/4) <= size/2) {
     sounds.player("soundFour").start();
   }
-  console.log(mouseX+":"+mouseY)
 }
