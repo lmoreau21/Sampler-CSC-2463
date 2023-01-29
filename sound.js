@@ -5,16 +5,21 @@ let checkbox;
 
 //Tone.Transport.start();
 function setup(){
-  createCanvas(700, 600);
+  createCanvas(windowWidth-20,windowHeight-20);
+  
   background(0);
   slider = createSlider(-10, 10,0,1)
-  slider.position(100,50)
-  slider.style('width','500px')
-  size = 200
+  size = height/3;
   sounds = new Tone.Players({soundOne:"mixkit-clear-announce-tones-2861.wav",soundTwo:"mixkit-arcade-retro-game-over-213.wav",soundThree:"mixkit-race-countdown-1953.wav",soundFour:"mixkit-winning-an-extra-bonus-2060.wav"}).connect(shifter);
 }
 function draw(){
+  textAlign('Center')
+  
+  resizeCanvas(windowWidth-20, windowHeight-20);
   background('lightblue');
+  slider.position(width/8,50)
+  slider.style('width',width*3/4+'px')
+
   fill('red')
   shapeOne =  circle(width*1/4,height/4+30,size)
   fill('green')
